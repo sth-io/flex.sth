@@ -1,0 +1,14 @@
+// font-size in rem gen
+.font-size(@px, @lh: 1.375) {
+  @font-size: (@px / @font-size-base);
+  font-size: ~"@{font-size}rem";
+  line-height: ~"@{lh}em";
+}
+//padding with rem
+.padd(@pt: 0; @pr: 0; @pb: 0; @pl: 0; ) {
+  @ptv: (@pt / @font-size-base);
+  @prv: (@pr / @font-size-base);
+  @pbv: (@pb / @font-size-base);
+  @plv: (@pl / @font-size-base);
+  padding: ~"@{ptv}rem" ~"@{prv}rem" ~"@{pbv}rem" ~"@{plv}rem";
+}

@@ -1,0 +1,137 @@
+// ----------------
+// CONTAINERS
+// ----------------
+.sth {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: @sth-width;
+    margin: auto;
+
+    [class^='sth-'] {
+        padding: @col-inner-space;
+        margin: @col-outer-space;
+    }
+
+    // all containers properties
+    &.sth-dir-row {
+        flex-direction: row;
+    }
+    &.sth-dir-row-rev {
+        flex-direction: row-reverse;
+    }
+    &.sth-dir-col {
+        flex-direction: column;
+    }
+    &.sth-dir-col-rev {
+        flex-direction: column-reverse;
+    }
+    &.sth-wrap-no {
+        flex-wrap: nowrap;
+    }
+    &.sth-wrap-rev {
+        flex-wrap: wrap-reverse;
+    }
+    &.sth-row-wrap {
+        flex-flow: wrap row;
+    }
+    &.sth-hor-left {
+        justify-content: flex-start;
+    }
+    &.sth-hor-right {
+        justify-content: flex-end;
+    }
+    &.sth-hor-mid {
+        justify-content: center;
+    }
+    &.sth-hor-spaced {
+        justify-content: space-between;
+    }
+    &.sth-hor-spaced-around {
+        justify-content: space-around;
+    }
+    &.sth-ver-top {
+        align-items: flex-start;
+    }
+    &.sth-ver-bottom {
+        align-items: flex-end;
+    }
+    &.sth-ver-mid {
+        align-items: center;
+    }
+    &.sth-ver-baseline {
+        align-items: baseline;
+    }
+    &.sth-ver-full {
+        align-items: stretch;
+    }
+}
+
+// most common setups for containers
+.sth-row {
+    display: flex;
+    flex-flow: wrap row;
+}
+.sth-col {
+    display: flex;
+    flex-flow: wrap column;
+}
+
+// ----------------
+// BOXES
+// ----------------
+[class^='sth-max-'] {
+    flex-wrap: wrap;
+}
+[class^='sth'] {
+    box-sizing: border-box;
+}
+.sth-max-loop (@index, @index-mx) when (@index <= @flex-count) {
+    .sth-max-@{index-mx} {
+        .sth-@{index} {
+            & when (@index <= @index-mx) {
+                @wh: (@index / @index-mx)*100;
+                flex-basis: ~"@{wh}%";
+            }
+            & when (@index > @index-mx) {
+                @wh: 100;
+                flex-basis: ~"@{wh}%";
+            }
+        }
+    }
+    @media only screen and (max-width:@screen-md) {
+        .sth-md-@{index-mx} {
+            .sth-@{index} {
+                @wh: (@index / @index-mx)*100;
+                flex-basis: ~"@{wh}% !important";
+                & when (@index >= @index-mx) {
+                    @wh: 100;
+                    flex-basis: ~"@{wh}% !important";
+                }
+            }
+        }
+    }
+    @media only screen and (max-width:@screen-sm) {
+        .sth-sm-@{index-mx} {
+            .sth-@{index} {
+                @wh: (@index / @index-mx)*100;
+                flex-basis: ~"@{wh}% !important";
+                & when (@index >= @index-mx) {
+                    @wh: 100;
+                    flex-basis: ~"@{wh}% !important";
+                }
+            }
+        }
+    }
+    /*Here we increment our loop*/
+    .sth-max-loop (@index + 1, @index-mx);
+}
+.sth-loop (@index) when (@index <= @flex-count) {
+    .sth-@{index} {
+        flex: @index 0 0;
+    }
+    .sth-max-loop(1, @index);
+
+    /*Here we increment our loop*/
+    .sth-loop(@index + 1);
+}
+.sth-loop(1);

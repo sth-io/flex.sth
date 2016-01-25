@@ -1,0 +1,31 @@
+{
+  "name": "boilsth",
+  "dependencies": {
+    "Sth-Camouflage": "*",
+    "simple-line-icons": "~2.2.3",
+    "jQuery": "*"
+  },
+  "homepage": "https://github.com/sth-group/boilSth",
+  "authors": [
+    "kWeglinski <krzysiek@csth.pl>"
+  ],
+  "description": "Boilerplate for quick building websites.",
+  "main": "gulpfile.js",
+  "moduleType": [],
+  "keywords": [
+    "boilerplate",
+    "sth",
+    "less",
+    "gulp",
+    "browsersync"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "_src/lib",
+    "test",
+    "tests"
+  ]
+}

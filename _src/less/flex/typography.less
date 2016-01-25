@@ -1,0 +1,67 @@
+body {
+    font-size: ~"@{font-size-base}px";
+    line-height: 1.375em;
+}
+
+// default font-sizes are based on http://typecast.com/blog/a-more-modern-scale-for-web-typography
+// typecast's suggestions
+// default sizes, largest one.
+
+h1,
+h2,
+h3,
+h4 {
+    display: block;
+    width: 100%;
+}
+
+h1 {
+    .font-size(48, 1.05);
+}
+h2 {
+    .font-size(36, 1.25);
+}
+h3 {
+    .font-size(28, 1.25);
+}
+h4 {
+    .font-size(18, 1.22);
+}
+
+// sizes for phones
+@media only screen and (min-width:0px) and (max-width:@screen-sm) {
+    body {
+        line-height: 1.25em;
+    }
+    h1 {
+        .font-size(32, 1.25);
+    }
+    h2 {
+        .font-size(26, 1.153);
+    }
+    h3 {
+        .font-size(22, 1.136);
+    }
+    h4 {
+        .font-size(18, 1.11);
+    }
+}
+
+// sizes for tablets
+@media only screen and (min-width:@screen-sm) and (max-width:@screen-md) {
+    body {
+        line-height: 1.25em;
+    }
+    h1 {
+        .font-size(40, 1.125);
+    }
+    h2 {
+        .font-size(32, 1.25);
+    }
+    h3 {
+        .font-size(24, 1.25);
+    }
+    h4 {
+        .font-size(18, 1.22);
+    }
+}

@@ -1,0 +1,41 @@
+{
+  "name": "boilsth",
+  "version": "1.0.0",
+  "private": false,
+  "devDependencies": {
+    "gulp": "~3.9.0",
+    "gulp-less": "3.0.3",
+    "gulp-minify-css": "1.1.0",
+    "gulp-watch": "~4.3.4",
+    "gulp-concat": "2.6.0",
+    "gulp-uglify": "1.2.0",
+    "merge-stream": "^0.1.7",
+    "gulp-plumber": "~1.0.1",
+    "gulp-rename": "1.2.2",
+    "colors": "1.1.2",
+    "imagemin": "~3.2.1"
+  },
+  "description": "Boilerplate for quick building websites based on flex.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sth-io/flex.sth.git"
+  },
+  "keywords": [
+    "gulp",
+    "boilerplate",
+    "less",
+    "node",
+    "html",
+    "flex",
+    "website"
+  ],
+  "author": "Krzysztof Weglinski <krzysiek@csth.pl> (http://sth.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sth-io/flex.sth/issues"
+  }
+}
